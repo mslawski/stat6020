@@ -1,7 +1,0 @@
-library(CVXR)
-a <- Variable(5)
-obj <- -sum(log(a))
-constraints <- list(sum(a) == 5)
-prob <- Problem(Minimize(obj), constraints)
-result <- solve(prob)
-str(result)
