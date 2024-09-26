@@ -209,6 +209,7 @@ plot((1:numel(function_values_s_mb))*50, log(function_values_s_mb), '-*')
 
 % we load in a smaller data set for faster demonstration
 
+% data set from Homework 1
 X = dlmread('../hw/X_HW.txt');
 y = dlmread('../hw/y_HW.txt');
 
