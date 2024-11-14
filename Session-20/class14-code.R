@@ -70,7 +70,7 @@ log_likelihood <- function(theta) sapply(theta, function(z) sum(dnorm(X - z, log
 log_prior <- function(theta) dcauchy(theta - theta0, log = TRUE)
 log_posterior_unnorm <- function(theta) log_likelihood(theta) + log_prior(theta) 
 
-C <- integrate(function(z) exp(log_posterior_unnorm(z)), low = -5, up = 5)$value
+C0 <- integrate(function(z) exp(log_posterior_unnorm(z)), low = -5, up = 5)$value
 
 plot(function(theta) exp(log_posterior_unnorm(theta))/C, from = -4, to = 3, n = 1E3)
 plot(function(theta) exp(log_prior(theta)), from = -4, to = 3, n = 1E3, add = TRUE, col = "blue")
