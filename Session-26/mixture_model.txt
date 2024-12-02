@@ -1,0 +1,17 @@
+model {
+mu0 ~ dnorm(0, 1E-4)
+mu1 ~ dnorm(0, 1E-4)
+sigma0inv ~ dgamma(1.0E-4, 1.0E-4)
+sigma1inv ~ dgamma(1.0E-4, 1.0E-4)
+
+delta ~ dunif(0,1) 
+
+mu <- c(mu0, mu1)
+sigmainvs <- c(sigma0inv, sigma1inv)  
+pi <- c(delta, 1-delta) 
+for(i in 1:n){
+X[i] ~ dnormmix(mu, sigmainvs, pi)
+}
+
+
+}
